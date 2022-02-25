@@ -39,7 +39,7 @@ void TempClassification(CoolingType coolingType,int *lowerLimit,int *upperLimit)
 void checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType)) {
     BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-    Targetalert(alertTarget,sendToController,sendToEmail,BreachType breachType);
+    Targetalert(alertTarget,sendToController,sendToEmail,breachType);
 }
 
 void Targetalert(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType),BreachType breachType)
