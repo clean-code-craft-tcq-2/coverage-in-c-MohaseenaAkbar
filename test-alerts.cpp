@@ -25,9 +25,7 @@ TEST_CASE("Classify the breach") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 48) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 42) == TOO_HIGH);
 }
-TEST_CASE("check and alert")
-
-{
+TEST_CASE("check and alert"){
   BatteryCharacter Batt;
   Batt.coolingType =PASSIVE_COOLING;
   void (*sendToController)(BreachType) =sendToController;
