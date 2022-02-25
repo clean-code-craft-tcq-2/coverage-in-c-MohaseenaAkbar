@@ -15,3 +15,4 @@ void TempClassification(CoolingType coolingType,int *lowerLimit,int *upperLimit)
       *upperLimit = 40;
       break;
   }
+}
