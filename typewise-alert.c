@@ -42,10 +42,10 @@ void checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-  void alertTarget(alertTarget,(*sendToController)(breachType),(*sendToEmail)(breachType));
+  void alertTarget(alertTarget,(*sendToController)(BreachType),(*sendToEmail)(BreachType));
 }
 
-void alertTarget(AlertTarget alertTarget,void (*sendToController)(breachType),void (*sendToEmail)(breachType))
+void alertTarget(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType),BreachType breachType)
 {
   switch(alertTarget) {
     case TO_CONTROLLER:
