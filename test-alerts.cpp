@@ -34,15 +34,43 @@ TEST_CASE("check and alert")
   void (*sendToEmail)(BreachType) =sendToEmail_Test;
   checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
   REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==1);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
   checkAndAlert(TO_CONTROLLER,Batt,25,sendToController,sendToEmail);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+  
+   Batt.coolingType =HI_ACTIVE_COOLING;
+   checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+  
+  Reset_Counter();
+  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController,sendToEmail);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+  
+  Batt.coolingType =MED_ACTIVE_COOLING;
+   checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+  
+  Reset_Counter();
+  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController,sendToEmail);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==1);
   
 }
