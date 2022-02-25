@@ -1,4 +1,6 @@
 #include "typewise-alert.h"
+#include <stdio.h>
+TestCounter TestCounter_Ver;
 
 void sendToController_Test(BreachType breachType) {
   const unsigned short header = 0xfeed;
