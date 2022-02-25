@@ -25,3 +25,8 @@ TEST_CASE("Classify the breach") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 48) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 42) == TOO_HIGH);
 }
+TEST_CASE("check and alert")
+
+{
+  checkAndAlert(TO_CONTROLLER,PASSIVE_COOLING,25);
+}
