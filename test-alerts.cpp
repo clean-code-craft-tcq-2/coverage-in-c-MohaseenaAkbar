@@ -89,6 +89,7 @@ TEST_CASE("check and alert"){
   Batt.coolingType =PASSIVE_COOLING;
   void (*sendToController_Ver)(BreachType) =sendToController_Test;
   void (*sendToEmail_Ver)(BreachType) =sendToEmail_Test;
+  Reset_Counter();
   checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
   REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
