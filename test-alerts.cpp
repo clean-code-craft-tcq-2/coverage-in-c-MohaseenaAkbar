@@ -25,6 +25,12 @@ TEST_CASE("Temperature classification") {
   REQUIRE(Upperlimit== 40);
 }
 
+/*Test case for Temperature breach*/
+TEST_CASE("Temperature Breach check") {
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 60)==TOO_HIGH);
+}
+
+
 /*Test case for temp classification*/
 TEST_CASE("Classify the breach") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 20) == NORMAL);
