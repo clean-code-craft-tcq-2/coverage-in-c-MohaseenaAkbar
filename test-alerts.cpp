@@ -31,4 +31,5 @@ TEST_CASE("check and alert")
   BatteryCharacter Batt;
   Batt.coolingType =PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,Batt,25);
+  checkAndAlert(TO_EMAIL,Batt,25);
 }
