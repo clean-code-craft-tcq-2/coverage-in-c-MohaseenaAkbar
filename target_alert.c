@@ -1,4 +1,5 @@
 #include "typewise-alert.h"
+#include <stdio.h>
 
 void Targetalert(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType),BreachType breachType)
 {
