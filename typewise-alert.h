@@ -43,3 +43,5 @@ void Targetalert(AlertTarget alertTarget,void (*)(BreachType),void (*)(BreachTyp
 void TempClassification(CoolingType coolingType,int *lowerLimit,int *upperLimit);
 void sendToController_Test(BreachType breachType);
 void Reset_Counter();
+
+#endif
