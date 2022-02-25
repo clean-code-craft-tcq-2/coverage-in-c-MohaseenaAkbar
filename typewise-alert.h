@@ -31,7 +31,7 @@ typedef struct{
   int Normal_Cnt;
   int Controller_Feedback;
 }TestCounter;
-TestCounter TestCounter_Ver;
+extern TestCounter TestCounter_Ver;
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC,void (*)(BreachType),void (*)(BreachType));
 
 void sendToController(BreachType breachType);
