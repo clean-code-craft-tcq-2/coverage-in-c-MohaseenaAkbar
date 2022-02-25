@@ -33,7 +33,7 @@ TEST_CASE("check and alert")
   void (*sendToController)(BreachType) =sendToController_Test;
   void (*sendToEmail)(BreachType) =sendToEmail_Test;
   checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   //REQUIRE(TestCounter_Ver.Normal_Cnt==1);
   //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
