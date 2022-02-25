@@ -15,8 +15,8 @@ TEST_CASE("infers the breach according to limits") {
   int Lowerlimit;
   int Upperlimit;
   TempClassification(PASSIVE_COOLING, &Lowerlimit, &Upperlimit)
-  REQUIRE(*Lowerlimit== 0);
-  REQUIRE(*Upperlimit== 35);
+  REQUIRE(Lowerlimit== 0);
+  REQUIRE(Upperlimit== 35);
 }
 
 /*Test case for temp classification*/
