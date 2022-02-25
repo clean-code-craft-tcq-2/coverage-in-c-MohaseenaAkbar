@@ -28,16 +28,16 @@ TEST_CASE("Classify the breach") {
 TEST_CASE("check and alert"){
   BatteryCharacter Batt;
   Batt.coolingType =PASSIVE_COOLING;
-  void (*sendToController_Test)(BreachType) =sendToController_Test;
-  void (*sendToEmail_Test)(BreachType) =sendToEmail_Test;
-  checkAndAlert(TO_EMAIL,Batt,25,sendToController_Test,sendToEmail_Test);
+  void (*sendToController_Ver)(BreachType) =sendToController_Test;
+  void (*sendToEmail_Ver)(BreachType) =sendToEmail_Test;
+  checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
  // REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
  // REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
  // REQUIRE(TestCounter_Ver.Normal_Cnt==1);
   //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
-  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Test,sendToEmail_Test);
+  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Ver,sendToEmail_Ver);
   //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
@@ -45,14 +45,14 @@ TEST_CASE("check and alert"){
   
   Reset_Counter();
   Batt.coolingType =HI_ACTIVE_COOLING;
-  checkAndAlert(TO_EMAIL,Batt,25,sendToController_Test,sendToEmail_Test);
+  checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
   //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   //REQUIRE(TestCounter_Ver.Normal_Cnt==1);
   //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
-  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Test,sendToEmail_Test);
+  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Ver,sendToEmail_Ver);
   //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
@@ -60,14 +60,14 @@ TEST_CASE("check and alert"){
   
   Reset_Counter();
   Batt.coolingType =MED_ACTIVE_COOLING;
-  checkAndAlert(TO_EMAIL,Batt,25,sendToController_Test,sendToEmail_Test);
+  checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
   //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   //REQUIRE(TestCounter_Ver.Normal_Cnt==1);
   //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
-  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Test,sendToEmail_Test);
+  checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Ver,sendToEmail_Ver);
   //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
