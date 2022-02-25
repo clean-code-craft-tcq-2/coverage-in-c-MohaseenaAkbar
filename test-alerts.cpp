@@ -87,8 +87,8 @@ TEST_CASE("Classify the breach") {
 TEST_CASE("check and alert"){
   BatteryCharacter Batt;
   Batt.coolingType =PASSIVE_COOLING;
-  void (*sendToController_Ver)(BreachType) =sendToController;
-  void (*sendToEmail_Ver)(BreachType) =sendToEmail;
+  void (*sendToController_Ver)(BreachType) =sendToController_Test;
+  void (*sendToEmail_Ver)(BreachType) =sendToEmail_Test;
   checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
   REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
