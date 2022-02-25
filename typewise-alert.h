@@ -36,7 +36,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
-void sendToEmail_Test(BreachType breachType)
+void sendToEmail_Test(BreachType breachType);
 void alertTarget(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType),BreachType breachType);
 void TempClassification(CoolingType coolingType,int* lowerLimit,int* upperLimit);
 void sendToController_Test(BreachType breachType);
