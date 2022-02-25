@@ -38,7 +38,11 @@ void checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
+  void alertTarget(alertTarget);
+}
 
+void alertTarget(AlertTarget alertTarget)
+{
   switch(alertTarget) {
     case TO_CONTROLLER:
       sendToController(breachType);
@@ -47,7 +51,6 @@ void checkAndAlert(
       sendToEmail(breachType);
       break;
   }
-}
 
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
