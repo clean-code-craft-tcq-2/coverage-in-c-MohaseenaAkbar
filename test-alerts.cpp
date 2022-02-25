@@ -45,8 +45,9 @@ TEST_CASE("check and alert")
   REQUIRE(TestCounter_Ver.Normal_Cnt==0);
   REQUIRE(TestCounter_Ver.Controller_Feedback==1);
   
-   Batt.coolingType =HI_ACTIVE_COOLING;
-   checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
+  Reset_Counter();
+  Batt.coolingType =HI_ACTIVE_COOLING;
+  checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
   REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   REQUIRE(TestCounter_Ver.Normal_Cnt==1);
@@ -59,8 +60,9 @@ TEST_CASE("check and alert")
   REQUIRE(TestCounter_Ver.Normal_Cnt==0);
   REQUIRE(TestCounter_Ver.Controller_Feedback==1);
   
+  Reset_Counter();
   Batt.coolingType =MED_ACTIVE_COOLING;
-   checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
+  checkAndAlert(TO_EMAIL,Batt,25,sendToController,sendToEmail);
   REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
   REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
   REQUIRE(TestCounter_Ver.Normal_Cnt==1);
