@@ -42,10 +42,10 @@ void checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-  void alertTarget(alertTarget,(*sendToController)(BreachType),(*sendToEmail)(BreachType));
+  void alertTarget(alertTarget,(*sendToController)(breachType),(*sendToEmail)(breachType));
 }
 
-void alertTarget(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType))
+void alertTarget(AlertTarget alertTarget,void (*sendToController)(breachType),void (*sendToEmail)(breachType))
 {
   switch(alertTarget) {
     case TO_CONTROLLER:
@@ -61,6 +61,8 @@ void sendToController(BreachType breachType) {
   printf("%x : %x\n", header, breachType);
 }
 void sendToController_Test(BreachType breachType) {
+  const unsigned short header = 0xfeed;
+  printf("%x : %x\n", header, breachType);
   TestCounter_Ver.Controller_Feedback++;
 }
 
@@ -84,12 +86,12 @@ void sendToEmail_Test(BreachType breachType) {
 void Reset_Counter()
 {
   TestCounter_Ver.Too_Low_Cnt=0;
-  TestCounter_Ver.Too_High_Cnt=0
+  TestCounter_Ver.Too_High_Cnt=0;
   TestCounter_Ver.Normal_Cnt=0;
   TestCounter_Ver.Controller_Feedback=0;
 }
   
-  void sendToEmail(BreachType breachType) {
+void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
   switch(breachType) {
     case TOO_LOW:
