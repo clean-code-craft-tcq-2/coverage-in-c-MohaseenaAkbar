@@ -90,46 +90,46 @@ TEST_CASE("check and alert"){
   void (*sendToController_Ver)(BreachType) =sendToController;
   void (*sendToEmail_Ver)(BreachType) =sendToEmail;
   checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
- // REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
- // REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
- // REQUIRE(TestCounter_Ver.Normal_Cnt==1);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
   checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Ver,sendToEmail_Ver);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==1);
   
   Reset_Counter();
   Batt.coolingType =HI_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==1);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
   checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Ver,sendToEmail_Ver);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==1);
   
   Reset_Counter();
   Batt.coolingType =MED_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,Batt,25,sendToController_Ver,sendToEmail_Ver);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==1);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
   
   Reset_Counter();
   checkAndAlert(TO_CONTROLLER,Batt,25,sendToController_Ver,sendToEmail_Ver);
-  //REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Normal_Cnt==0);
-  //REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+  REQUIRE(TestCounter_Ver.Controller_Feedback==1);
   
 }
