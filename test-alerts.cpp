@@ -55,6 +55,7 @@ TEST_CASE("Target Alert") {
  REQUIRE(TestCounter_Ver.Normal_Cnt==0);
  REQUIRE(TestCounter_Ver.Controller_Feedback==0);
  
+ Reset_Counter();
  Targetalert(TO_EMAIL,sendToController_Ver,sendToEmail_Ver,NORMAL);
  REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
  REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
