@@ -15,7 +15,13 @@ BreachType classifyTemperatureBreach(
     CoolingType coolingType, double temperatureInC) {
   int lowerLimit = 0;
   int upperLimit = 0;
-  switch(coolingType) {
+  TempClassification(lowerLimit,upperLimit);
+  return inferBreach(temperatureInC, lowerLimit, upperLimit);
+}
+
+void TempClassification(int lowerLimit,int upperLimit)
+{
+   switch(coolingType) {
     case PASSIVE_COOLING:
       lowerLimit = 0;
       upperLimit = 35;
@@ -29,9 +35,8 @@ BreachType classifyTemperatureBreach(
       upperLimit = 40;
       break;
   }
-  return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
-
+  
 void checkAndAlert(
     AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
 
