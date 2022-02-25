@@ -32,12 +32,12 @@ typedef struct{
   int Controller_Feedback;
 }TestCounter;
 TestCounter TestCounter_Ver;
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType));
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC,void (*)(BreachType),void (*)(BreachType));
 
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
 void sendToEmail_Test(BreachType breachType);
-void Targetalert(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType),BreachType breachType);
+void Targetalert(AlertTarget alertTarget,void (*)(BreachType),void (*)(BreachType),BreachType breachType);
 void TempClassification(CoolingType coolingType,int *lowerLimit,int *upperLimit);
 void sendToController_Test(BreachType breachType);
 void Reset_Counter();
