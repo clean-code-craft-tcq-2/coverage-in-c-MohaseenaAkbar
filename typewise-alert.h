@@ -1,3 +1,5 @@
+#ifndef TYPEWISE-ALERT_H
+#define TYPEWISE-ALERT_H
 #pragma once
 
 typedef enum {
