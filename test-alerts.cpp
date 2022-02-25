@@ -3,11 +3,13 @@
 #include "test/catch.hpp"
 #include "typewise-alert.h"
 
+/*Test case for inferBreach*/
 TEST_CASE("infers the breach according to limits") {
   REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
   REQUIRE(inferBreach(40, 20, 30) == TOO_HIGH);
 }
 
+/*Test case for temp classification*/
 TEST_CASE("Classify the breach") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 20) == NORMAL);
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 35) == NORMAL);
@@ -25,6 +27,8 @@ TEST_CASE("Classify the breach") {
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 48) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 42) == TOO_HIGH);
 }
+
+/*Test case for alert*/
 TEST_CASE("check and alert"){
   BatteryCharacter Batt;
   Batt.coolingType =PASSIVE_COOLING;
