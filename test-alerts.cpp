@@ -30,6 +30,38 @@ TEST_CASE("Temperature Breach check") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 60)==TOO_HIGH);
 }
 
+/*Test case for Target Alert*/
+TEST_CASE("Target Alert") {
+ void (*sendToController_Ver)(BreachType) =sendToController_Test;
+ void (*sendToEmail_Ver)(BreachType) =sendToEmail_Test;
+  Reset_Counter();
+ Targetalert(TO_CONTROLLER,sendToController_Ver,sendToEmail_Ver,TOO_LOW);
+ REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+ REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+ REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+ REQUIRE(TestCounter_Ver.Controller_Feedback==1);
+ 
+ Reset_Counter();
+ Targetalert(TO_EMAIL,sendToController_Ver,sendToEmail_Ver,TOO_LOW);
+ REQUIRE(TestCounter_Ver.Too_Low_Cnt==1);
+ REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+ REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+ REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+ 
+ Reset_Counter();
+ Targetalert(TO_EMAIL,sendToController_Ver,sendToEmail_Ver,TOO_HIGH);
+ REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+ REQUIRE(TestCounter_Ver.Too_High_Cnt==1);
+ REQUIRE(TestCounter_Ver.Normal_Cnt==0);
+ REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+ 
+ Targetalert(TO_EMAIL,sendToController_Ver,sendToEmail_Ver,NORMAL);
+ REQUIRE(TestCounter_Ver.Too_Low_Cnt==0);
+ REQUIRE(TestCounter_Ver.Too_High_Cnt==0);
+ REQUIRE(TestCounter_Ver.Normal_Cnt==1);
+ REQUIRE(TestCounter_Ver.Controller_Feedback==0);
+}
+
 
 /*Test case for temp classification*/
 TEST_CASE("Classify the breach") {
