@@ -10,6 +10,15 @@ TEST_CASE("infers the breach according to limits") {
   REQUIRE(inferBreach(25, 20, 30) == NORMAL);
 }
 
+/*Test case for inferBreach*/
+TEST_CASE("infers the breach according to limits") {
+  int Lowerlimit;
+  int Upperlimit;
+  TempClassification(PASSIVE_COOLING, &Lowerlimit, &Upperlimit)
+  REQUIRE(*Lowerlimit== 0);
+  REQUIRE(*Upperlimit== 35);
+}
+
 /*Test case for temp classification*/
 TEST_CASE("Classify the breach") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 20) == NORMAL);
