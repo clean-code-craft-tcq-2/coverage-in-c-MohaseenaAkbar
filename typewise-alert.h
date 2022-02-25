@@ -31,3 +31,4 @@ void checkAndAlert(
 void sendToController(BreachType breachType);
 void sendToEmail(BreachType breachType);
 void alertTarget(AlertTarget alertTarget);
+void TempClassification(int lowerLimit,int upperLimit);
