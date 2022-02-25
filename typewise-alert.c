@@ -18,7 +18,7 @@ BreachType classifyTemperatureBreach(
   TempClassification(coolingType,&lowerLimit,&upperLimit);
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
-
+}
 void TempClassification(CoolingType coolingType,int* lowerLimit,int* upperLimit)
 {
    switch(coolingType) {
@@ -55,7 +55,7 @@ void alertTarget(AlertTarget alertTarget,void (*sendToController)(BreachType),vo
       (*sendToEmail)(breachType);
       break;
   }
-
+}
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
