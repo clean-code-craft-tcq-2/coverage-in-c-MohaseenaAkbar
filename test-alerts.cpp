@@ -28,5 +28,7 @@ TEST_CASE("Classify the breach") {
 TEST_CASE("check and alert")
 
 {
-  checkAndAlert(TO_CONTROLLER,PASSIVE_COOLING,25);
+  BatteryCharacter Batt;
+  Batt.CoolingType =PASSIVE_COOLING;
+  checkAndAlert(TO_CONTROLLER,Batt,25);
 }
