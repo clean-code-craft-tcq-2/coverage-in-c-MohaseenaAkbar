@@ -18,7 +18,7 @@ BreachType classifyTemperatureBreach(
   TempClassification(coolingType,&lowerLimit,&upperLimit);
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
-void TempClassification(CoolingType coolingType,int* lowerLimit,int* upperLimit)
+void TempClassification(CoolingType coolingType,int *lowerLimit,int *upperLimit)
 {
    switch(coolingType) {
     case PASSIVE_COOLING:
