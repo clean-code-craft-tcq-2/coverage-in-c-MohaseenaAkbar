@@ -41,7 +41,7 @@ void checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-  void alertTarget(alertTarget,(*sendToController)(BreachType),(*sendToEmail)(BreachType));
+  void alertTarget(alertTarget,sendToController,sendToEmail);
 }
 
 void alertTarget(AlertTarget alertTarget,void (*sendToController)(BreachType),void (*sendToEmail)(BreachType),BreachType breachType)
