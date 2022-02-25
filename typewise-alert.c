@@ -61,7 +61,7 @@ void sendToController(BreachType breachType) {
   printf("%x : %x\n", header, breachType);
 }
 void sendToController_Test(BreachType breachType) {
-  TestCounter.Controller_Feedback++;
+  TestCounter_Ver.Controller_Feedback++;
 }
 
 
@@ -69,24 +69,24 @@ void sendToEmail_Test(BreachType breachType) {
   switch(breachType) {
     case TOO_LOW:
       printf("Hi, the temperature is too low\n");
-      TestCounter.Too_Low_Cnt++;
+      TestCounter_Ver.Too_Low_Cnt++;
       break;
     case TOO_HIGH:
       printf("Hi, the temperature is too high\n");
-      TestCounter.Too_High_Cnt++;
+      TestCounter_Ver.Too_High_Cnt++;
       break;
     case NORMAL:
-      TestCounter.Normal_Cnt++;
+      TestCounter_Ver.Normal_Cnt++;
       break;
   }
 }
 
 void Reset_Counter()
 {
-  TestCounter.Too_Low_Cnt=0;
-  TestCounter.Too_High_Cnt=0
-  TestCounter.Normal_Cnt=0;
-  TestCounter.Controller_Feedback=0;
+  TestCounter_Ver.Too_Low_Cnt=0;
+  TestCounter_Ver.Too_High_Cnt=0
+  TestCounter_Ver.Normal_Cnt=0;
+  TestCounter_Ver.Controller_Feedback=0;
 }
   
   void sendToEmail(BreachType breachType) {
